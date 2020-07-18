@@ -9,15 +9,19 @@ import {
 } from "reactstrap";
 
 class DishDetail extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    console.log("DishDetail Component componentDidMount is invoked");
+  }
+
+  componentDidUpdate() {
+    console.log("DishDetail Component componentDidUpdate is invoked");
   }
 
   renderComments(comments) {
     const com = comments.map(comData => {
       return (
-        <div className="container">
-          <li key={comData.id}>
+        <div key={comData.id}>
+          <li>
             <p>{comData.comment}</p>
             <p>
               -- {comData.author},
@@ -60,6 +64,8 @@ class DishDetail extends Component {
   }
 
   render() {
+    console.log("DishDetail Component render is invoked");
+
     if (this.props.dish != null) {
       return (
         <div className="row">
