@@ -171,6 +171,9 @@ class Contact extends Component {
                     }}
                   />
                   <Errors
+                    className="text-danger"
+                    model=".telnum"
+                    show="touched"
                     messages={{
                       required: "Required",
                       minLength: "Must be greater than 2 characters",
@@ -197,9 +200,12 @@ class Contact extends Component {
                     }}
                   />
                   <Errors
+                    className="text-danger"
+                    model=".email"
+                    show="touched"
                     messages={{
                       required: "Required",
-                      validEmail: "Invalid email address"
+                      validEmail: "Invalid Email Address"
                     }}
                   />
                 </Col>
