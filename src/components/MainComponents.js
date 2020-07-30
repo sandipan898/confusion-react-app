@@ -1,47 +1,30 @@
 import React, { Component } from "react";
 import Menu from "./MenuComponents";
 import Home from "./HomeComponent";
-// import { DISHES } from "../shared/dishes";
-// import { COMMENTS } from "../shared/comments";
-// import { PROMOTIONS } from "../shared/promotions";
-// import { LEADERS } from "../shared//leaders";
 import DishDetail from "./DishdetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     dishes: state.dishes,
     comments: state.comments,
     promotions: state.promotions,
     leaders: state.leaders
   };
-}
+};
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    /*
-    this.state = {
-      dishes: DISHES,
-      comments: COMMENTS,
-      leaders: LEADERS,
-      promotions: PROMOTIONS,
-      selectedDish: null
-    };*/
   }
-  /*
-  onDishSelect(dishId) {
-    this.setState({ selectedDish: dishId });
-  }*/
 
   render() {
     const HomePage = () => {
-      console.log(this.props.dishes);
       return (
         <Home
           dish={this.props.dishes.filter(dish => dish.featured)[0]}
@@ -83,19 +66,6 @@ class Main extends Component {
           <Route exact path="/contactus" component={Contact} />
           <Redirect to="/home" />
         </Switch>
-        {/* <Menu
-          dishes={this.state.dishes}
-          onClick={dishId => {
-            this.onDishSelect(dishId);
-          }}
-        />
-        <DishDetail
-          dish={
-            this.state.dishes.filter(
-              dish => dish.id === this.state.selectedDish
-            )[0]
-          }
-        /> */}
         <Footer />
       </div>
     );

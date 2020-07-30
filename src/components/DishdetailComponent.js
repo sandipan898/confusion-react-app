@@ -10,14 +10,6 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-// componentDidMount() {
-//   console.log("DishDetail Component componentDidMount is invoked");
-// }
-
-// componentDidUpdate() {
-//   console.log("DishDetail Component componentDidUpdate is invoked");
-// }
-
 function RenderComments({ comments }) {
   const com = comments.map(comData => {
     return (
