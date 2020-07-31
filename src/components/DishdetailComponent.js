@@ -18,11 +18,12 @@ import { Link } from "react-router-dom";
 import CommentForm from "./CommentFormComponent";
 import { Control, LocalForm, Errors } from "react-redux-form";
 
+/*
 const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
 const minLength = len => val => val && val.length >= len;
 
-/*
+
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -128,49 +129,61 @@ class CommentForm extends Component {
 }
 */
 
-function RenderComments({ comments }) {
-  const com = comments.map(comData => {
+function RenderComments({ comments, addComment, dishId }) {
+  if (comments != null) {
+    const com = comments.map(comData => {
+      return (
+        <div key={comData.id}>
+          <li>
+            <p>{comData.comment}</p>
+            <p>
+              -- {comData.author},
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "short",
+                date: "2-digit"
+              }).format(new Date(Date.parse(comData.date)))}
+            </p>
+          </li>
+        </div>
+      );
+    });
     return (
-      <div key={comData.id}>
-        <li>
-          <p>{comData.comment}</p>
-          <p>
-            -- {comData.author},
-            {new Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "short",
-              date: "2-digit"
-            }).format(new Date(Date.parse(comData.date)))}
-          </p>
-        </li>
+      <div className="col-12 col-md-5 m-1">
+        <h1>Comments</h1>
+        <ul className="list-unstyled">
+          {com}
+          <li>
+            <CommentForm dishId={dishId} addComment={addComment} />
+          </li>
+        </ul>
       </div>
     );
-  });
-  return (
-    <div className="col-12 col-md-5 m-1">
-      <h1>Comments</h1>
-      <ul className="list-unstyled">
-        {com}
-        <li>
-          <CommentForm />
-        </li>
-      </ul>
-    </div>
-  );
+  } else {
+    return (
+      <div>
+        <h3> No comments found</h3>
+      </div>
+    );
+  }
 }
 
 function RenderDish({ dish }) {
-  return (
-    <div className="col-12 col-md-5 m-1">
-      <Card key={dish.id}>
-        <CardImg top src={dish.image} alt={dish.name} />
-        <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
-        </CardBody>
-      </Card>
-    </div>
-  );
+  if (dish != null) {
+    return (
+      <div className="col-12 col-md-5 m-1">
+        <Card key={dish.id}>
+          <CardImg top src={dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  } else {
+    return <div>Dish is not available</div>;
+  }
 }
 
 const DishDetail = props => {
@@ -191,7 +204,11 @@ const DishDetail = props => {
         </div>
         <div className="row">
           <RenderDish dish={props.dish} />
-          <RenderComments comments={props.comments} />
+          <RenderComments
+            comments={props.comments}
+            addComment={props.addComment}
+            dishId={props.dish.id}
+          />
         </div>
       </div>
     );
