@@ -23,7 +23,6 @@ const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
 const minLength = len => val => val && val.length >= len;
 
-
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -41,8 +40,16 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values) {
+    console.log(this.state);
+    console.log(this.props);
+    console.log(values);
     alert("Current state is: " + JSON.stringify(values));
-    console.log("Current State is: " + JSON.stringify(values));
+    this.props.addComment(
+      this.props.dishId,
+      values.rating,
+      values.author,
+      values.comment
+    );
   }
 
   render() {
@@ -71,11 +78,11 @@ class CommentForm extends Component {
                 </Control.select>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="yourname">Your Name</Label>
+                <Label htmlFor="author">Your Name</Label>
                 <Control.text
-                  model=".yourname"
-                  id="yourname"
-                  name="yourname"
+                  model=".author"
+                  id="author"
+                  name="author"
                   placeholder="Your Name"
                   className="form-control"
                   validators={{
@@ -86,7 +93,7 @@ class CommentForm extends Component {
                 />
                 <Errors
                   className="text-danger"
-                  model=".yourname"
+                  model=".author"
                   show="touched"
                   messages={{
                     required: "Should not be blank",

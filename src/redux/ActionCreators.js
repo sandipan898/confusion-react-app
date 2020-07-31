@@ -6,6 +6,6 @@ export const addComment = (dishId, rating, author, comment) => ({
     dishId: dishId,
     rating: rating,
     author: author,
-    comnent: comment
+    comment: comment
   }
 });

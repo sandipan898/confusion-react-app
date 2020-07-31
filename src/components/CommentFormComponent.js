@@ -33,9 +33,7 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values) {
-    console.log(this.state);
-    console.log(this.props);
-    console.log(values);
+    console.log(values.comment);
     alert("Current state is: " + JSON.stringify(values));
     this.props.addComment(
       this.props.dishId,
@@ -96,12 +94,12 @@ class CommentForm extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="yourname">Comments</Label>
+                <Label htmlFor="comment">Comments</Label>
                 <Control.textarea
-                  model=".comments"
-                  id="comments"
-                  name="comments"
-                  placeholder="Comments"
+                  model=".comment"
+                  id="comment"
+                  name="comment"
+                  placeholder="Comment"
                   className="form-control"
                   rows="6"
                   validators={{
@@ -110,7 +108,7 @@ class CommentForm extends Component {
                 />
                 <Errors
                   className="text-danger"
-                  model=".comments"
+                  model=".comment"
                   show="touched"
                   messages={{
                     required: "Should not be blank"
