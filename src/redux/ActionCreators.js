@@ -11,10 +11,26 @@ export const addComment = (dishId, rating, author, comment) => ({
   }
 });
 
+// Thunk
 export const fetchDishes = () => dispatch => {
-  dispatch(dispatchLoading(true));
+  dispatch(dishesLoading(true));
 
   setTimeout(() => {
     dispatch(addDishes(DISHES));
   }, 2000);
 };
+
+// Action creator functions
+export const dishesLoading = () => ({
+  type: ActionTypes.DISHES_LOADING
+});
+
+export const dishesFailed = errmess => ({
+  type: ActionTypes.DISHES_FAILED,
+  payload: errmess
+});
+
+export const addDishes = dishes => ({
+  type: ActionTypes.ADD_DISHES,
+  payload: dishes
+});
