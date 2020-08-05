@@ -85,7 +85,7 @@ class Main extends Component {
             comment => comment.dishId === parseInt(match.params.dishId, 10)
           )}
           commentsErrMess={this.props.comments.errMess}
-          postComment={this.props.addComment}
+          postComment={this.props.postComment}
         />
       );
     };
