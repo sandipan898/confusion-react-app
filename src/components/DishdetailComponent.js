@@ -138,7 +138,7 @@ class CommentForm extends Component {
 }
 */
 
-function RenderComments({ comments, addComment, dishId }) {
+function RenderComments({ comments, postComment, dishId }) {
   if (comments != null) {
     const com = comments.map(comData => {
       return (
@@ -163,7 +163,7 @@ function RenderComments({ comments, addComment, dishId }) {
         <ul className="list-unstyled">
           {com}
           <li>
-            <CommentForm dishId={dishId} addComment={addComment} />
+            <CommentForm dishId={dishId} postComment={postComment} />
           </li>
         </ul>
       </div>
@@ -231,7 +231,7 @@ const DishDetail = props => {
           <RenderDish dish={props.dish} />
           <RenderComments
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}
           />
         </div>
