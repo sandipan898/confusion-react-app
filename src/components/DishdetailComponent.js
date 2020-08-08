@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Card,
   CardImg,
@@ -7,12 +7,6 @@ import {
   CardTitle,
   Breadcrumb,
   BreadcrumbItem
-  // Button,
-  // Modal,
-  // ModalHeader,
-  // ModalBody,
-  // Label,
-  // FormGroup
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import CommentForm from "./CommentFormComponent";

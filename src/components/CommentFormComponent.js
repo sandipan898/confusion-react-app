@@ -4,11 +4,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  Input,
   Label,
-  FormGroup,
-  Col,
-  Row
+  FormGroup
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
 
