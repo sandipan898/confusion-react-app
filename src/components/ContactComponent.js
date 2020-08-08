@@ -9,7 +9,6 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, Form, Errors } from "react-redux-form";
-import { baseUrl } from "../shared/baseUrl";
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
@@ -88,7 +87,7 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-              <a role="button" className="btn btn-info">
+              <a href="#" role="button" className="btn btn-info">
                 <i className="fa fa-skype"></i> Skype
               </a>
               <a
