@@ -209,6 +209,14 @@
       "comment": "This is a new comment\n",
       "date": "2020-08-05T07:27:42.670Z",
       "id": 20
+    },
+    {
+      "dishId": 0,
+      "rating": "3",
+      "author": "Sandipan",
+      "comment": "Nice to have a taste of it",
+      "date": "2020-08-08T06:13:32.262Z",
+      "id": 21
     }
   ],
   "promotions": [
@@ -282,6 +290,17 @@
       "message": "This is a nice website",
       "date": "2020-08-08T04:05:51.316Z",
       "id": 2
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "telnum": "",
+      "email": "",
+      "agree": false,
+      "contactType": "Tel. ",
+      "message": "",
+      "date": "2020-08-08T06:07:53.687Z",
+      "id": 3
     }
   ]
 }
